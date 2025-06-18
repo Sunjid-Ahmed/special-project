@@ -1,7 +1,4 @@
 # special-project
-Here's a polished and GitHub-ready `README.md` template for your **special-project** repo based on your naming convention. Feel free to adapt it with real details (project goals, technologies used, screenshots, etc.):
-
----
 
 ```markdown
 # 🌟 special-project
