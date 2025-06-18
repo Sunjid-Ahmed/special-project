@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org"
+	th:replace="~{ base :: layout( ~{::title}, ~{::section} ) }">
+<head>
+<meta charset="UTF-8">
+<title>View Notes:: Take Note</title>
+
+<style>
+/* .ws{
+  
+  box-shadow: 0px 2px 15px rgba(0, 0, 20, 0.9)!important;
+} */
+</style>
+</head>
+
+<body>
+	<section>
+		<!-- table code -->
+
+		<div class="container-fluid mt-3">
+			<div class="row">
+				<div th:each="allNotes: ${listOfNotesByUser}" class="col-md-10 offset-md-1">
+					<div class="card mt-3">
+
+						<div class="card-body ws">
+							<h3 class="text-center fs-2 text-info">View Notes</h3>
+							<th:block th:if="${session.message}">
+								<p class="fs-5 text-center text-success">[[${session.message}]]</p>
+								<th:block th:text="${@userServiceImpl.removeSesstionMessage()}"></th:block>
+							</th:block>
+							
+							
+							<div class="text-center">
+								<i class="fa-solid fa-book fa-2x"></i>
+							</div>
+							
+							<p class="fw-bold">[[${allNotes.title}]]</p>
+							
+							<p>[[${allNotes.description}]]</p>
+							
+							<p>Publish Date: <span class="fw-bold text-primary">[[${allNotes.createdAt}]]</span></p>
+
+							<div class="text-center">
+							<a th:href="@{'edit-notes/'+${allNotes.id}}" class="btn btn-sm btn-info">Edit</a>
+							<a th:href="@{'delete-notes/'+${allNotes.id}}" class="btn btn-sm btn-danger">Delete</a>
+							</div>
+
+						</div>
+
+
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+
+		<!-- end of table code -->
+	</section>
+</body>
+</html>

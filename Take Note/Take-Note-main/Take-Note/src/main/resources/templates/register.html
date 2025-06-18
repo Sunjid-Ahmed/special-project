@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org"
+	th:replace="~{ base :: layout( ~{::title}, ~{::section} ) }">
+<head>
+<meta charset="UTF-8">
+<title>Register:: Take Note</title>
+</head>
+<body>
+	<section>
+		<!-- table code -->
+
+		<div class="container mt-3">
+			<div class="row">
+				<div class="col-md-6 offset-md-3">
+					<div class="card mt-3">
+						
+						<div class="card-header text-center"> 
+							<h3>Register</h3>
+							<th:block th:if="${session.message}">
+								<p class="fs-5 text-center text-success">[[${session.message}]]</p>
+								<th:block th:text="${@userServiceImpl.removeSesstionMessage()}"></th:block>
+							</th:block>
+						</div>
+						
+						<div class="card-body">
+
+							
+							<form action="save-user" method="post">
+								
+								<div class="mb-3">
+									<label for="exampleFormControlSelect1">Name :</label> <input
+										class="form-control" type="text" name="name"
+										 required="required" />
+								</div>
+
+								<div class="mb-3">
+									<label for="exampleFormControlSelect1">Email</label> <input
+										class="form-control" type="email" name="email"
+										/>
+								</div>
+								<div class="mb-3">
+									<label for="exampleFormControlSelect1">Address </label> <input
+										class="form-control" type="text" name="address"
+										 required="required" />
+								</div>
+								<div class="mb-3">
+									<label for="exampleFormControlSelect1">Phone No </label> <input
+										class="form-control" type="number" name="phone"
+										 required="required" />
+								</div>
+								<!-- <div class="mb-3">
+									<label for="gender">Select Gender</label> <br> 
+									<input type="radio" id="male_gender" name="gender" value="male"><label for="male_gender">Male</label>
+									<input type="radio" id="female_gender" name="gender" value="female"><label for="female_gender">Female</label>
+								</div> -->
+
+								<div class="mb-3">
+									<label for="maleRadio">Select Gender</label><br> <input
+										type="radio" id="maleRadio" name="gender" value="Male">
+									<label for="maleRadio">Male</label> <input type="radio"
+										id="femaleRadio" name="gender" value="Female"> <label
+										for="femaleRadio">Female</label>
+								</div>
+								
+								<div class="mb-3">
+									<label for="exampleFormControlSelect1">Password </label> <input
+										class="form-control" type="password" name="password"
+										 required="required"/>
+								</div>
+
+
+								<div>
+									<button type="submit" class="btn bg-wasim col-md-12 text-white">Submit</button>
+								</div>
+
+							</form>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+
+		<!-- end of table code -->
+	</section>
+</body>
+</html>
